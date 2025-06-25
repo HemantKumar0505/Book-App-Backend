@@ -17,7 +17,7 @@ require('dotenv').config()
 
 app.use(express.json())
 app.use(cors({
-    origin:['http://localhost:5173','https://book-app-frontend-alhh.vercel.app' ],
+    origin:['http://localhost:5173','https://book-app-frontend-indol.vercel.app' ],
     credentials:true
   
 }))
@@ -41,6 +41,7 @@ async function main() {
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
   app.use('/', (req, res) => { // Define a route for the root URL
     res.send('Book Store server is running!!'); // Send a response when the root URL is accessed
+    
 });
 }
 
