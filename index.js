@@ -34,13 +34,14 @@ app.use("/api/auth", userRoutes)
 app.use("/api/admin", adminRoutes)
 
 // routes
-app.get('/', (req, res) => { // Define a route for the root URL
-    res.send('Book Store server is running!!'); // Send a response when the root URL is accessed
-});
+
 
 async function main() {
   await mongoose.connect(process.env.DB_URL);
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+  app.use('/', (req, res) => { // Define a route for the root URL
+    res.send('Book Store server is running!!'); // Send a response when the root URL is accessed
+});
 }
 
 main().then(() => console.log("Mongodb connected Successfully")).catch(err => console.log(err)); // Call the main function and catch any errors that occur during the connection process
